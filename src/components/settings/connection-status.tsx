@@ -1,0 +1,7 @@
+import { Activity } from 'lucide-react';
+import type { HealthResponse } from '@/lib/types';
+
+export function ConnectionStatus({ health, labels }: { health?: HealthResponse; labels: { connection: string; connected: string; notConnected: string; chatEnabled: string; ragEnabled: string; hybridEnabled: string; documentsReady: string; enabled: string; disabled: string } }) {
+  const states = [{ label: labels.chatEnabled, value: health?.features.chat }, { label: labels.ragEnabled, value: health?.features.rag }, { label: labels.hybridEnabled, value: health?.features.hybrid }, { label: labels.documentsReady, value: health?.documents_ready }];
+  return <div className="glass rounded-2xl p-5 sm:p-6"><div className="mb-5 flex items-center gap-2"><Activity size={17} className="text-[#75d6c0]"/><h2 className="text-sm font-semibold">{labels.connection}</h2></div><div className="mb-4 flex items-center gap-3 rounded-xl bg-white/[.035] p-3"><span className={`size-2 rounded-full ${health ? 'bg-[#5bd5b0]' : 'bg-[#e4ad69]'}`}/><div><div className="text-xs font-semibold">{health ? labels.connected : labels.notConnected}</div><div className="mt-1 text-[10px] text-[#77849b]">{health?.project || '—'}</div></div></div><div className="space-y-3">{states.map(item => <div key={item.label} className="flex items-center justify-between border-b border-white/[.06] pb-3 text-xs"><span className="text-[#9aa6bc]">{item.label}</span><span className={item.value ? 'text-[#69d5b2]' : 'text-[#7b879c]'}>{item.value ? labels.enabled : labels.disabled}</span></div>)}</div></div>;
+}

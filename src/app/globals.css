@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: var(--font-app);
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #080b14;
+  --panel: #101625;
+  --muted: #8993a8;
+  --line: rgba(160, 177, 210, 0.13);
+  --violet: #8b7cff;
+  --cyan: #62d6e8;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+}
+body {
+  color: #eef1fb;
+  font-family: Arial, 'Segoe UI', sans-serif;
+  background-image:
+    radial-gradient(
+      ellipse at 82% 0%,
+      rgba(104, 88, 226, 0.17),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 0% 75%,
+      rgba(45, 157, 187, 0.09),
+      transparent 35%
+    );
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+::selection {
+  background: #7c6cf5;
+  color: white;
+}
+.glass {
+  background: linear-gradient(
+    145deg,
+    rgba(24, 33, 53, 0.88),
+    rgba(13, 19, 32, 0.82)
+  );
+  border: 1px solid var(--line);
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.22),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(18px);
+}
+.soft-border {
+  border: 1px solid var(--line);
+}
+.gradient-text {
+  background: linear-gradient(100deg, #fff 10%, #b9b2ff 55%, #70d8e8);
+  background-clip: text;
+  color: transparent;
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #303a52 transparent;
+}
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(160, 177, 210, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 17px 17px;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #9387ff;
+  outline-offset: 3px;
+}
